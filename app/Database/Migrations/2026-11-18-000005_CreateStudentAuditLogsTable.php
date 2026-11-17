@@ -1,0 +1,4 @@
+<?php
+namespace App\Database\Migrations;
+use CodeIgniter\Database\Migration;
+class CreateStudentAuditLogsTable extends Migration { public function up(){ $this->forge->addField(['id'=>['type'=>'BIGINT','unsigned'=>true,'auto_increment'=>true],'admin_id'=>['type'=>'INT','unsigned'=>true],'student_id'=>['type'=>'INT','unsigned'=>true],'action'=>['type'=>'VARCHAR','constraint'=>40],'before_values'=>['type'=>'TEXT','null'=>true],'after_values'=>['type'=>'TEXT','null'=>true],'created_at'=>['type'=>'DATETIME']]);$this->forge->addKey('id',true);$this->forge->addKey(['student_id','created_at']);$this->forge->addKey(['admin_id','created_at']);$this->forge->addForeignKey('admin_id','admins','id','RESTRICT','CASCADE');$this->forge->addForeignKey('student_id','students','id','RESTRICT','CASCADE');$this->forge->createTable('student_audit_logs'); } public function down(){ $this->forge->dropTable('student_audit_logs'); }}

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\StudentModel;
+use App\Services\VerificationLogger;
 use CodeIgniter\RESTful\ResourceController;
 
 class StudentVerificationController extends ResourceController
@@ -18,6 +19,7 @@ class StudentVerificationController extends ResourceController
             $expectedApiKey === '' ||
             !hash_equals($expectedApiKey, $providedApiKey)
         ) {
+            $this->log('unauthorized', $this->request->getGet('student_id'));
             return $this->failUnauthorized(
                 'Invalid or missing API key.'
             );
@@ -25,12 +27,14 @@ class StudentVerificationController extends ResourceController
 
         $rawStudentId = $this->request->getGet('student_id');
         if ($rawStudentId === null || $rawStudentId === '') {
+            $this->log('invalid_request', $rawStudentId);
             return $this->failValidationErrors(
                 'Student ID is required.'
             );
         }
 
         if (! is_string($rawStudentId)) {
+            $this->log('invalid_request', null);
             return $this->failValidationErrors(
                 'Student ID is invalid.'
             );
@@ -38,6 +42,7 @@ class StudentVerificationController extends ResourceController
 
         $studentId = trim($rawStudentId);
         if ($studentId === '') {
+            $this->log('invalid_request', $rawStudentId);
             return $this->failValidationErrors(
                 'Student ID is required.'
             );
@@ -47,6 +52,7 @@ class StudentVerificationController extends ResourceController
             strlen($studentId) > 30 ||
             preg_match('/\A[A-Za-z0-9-]+\z/', $studentId) !== 1
         ) {
+            $this->log('invalid_request', $rawStudentId);
             return $this->failValidationErrors(
                 'Student ID is invalid.'
             );
@@ -59,6 +65,7 @@ class StudentVerificationController extends ResourceController
             ->first();
 
         if (!$student) {
+            $this->log('student_not_found', $studentId);
             return $this->respond([
                 'verified' => false,
                 'message' => 'Student record not found.',
@@ -66,12 +73,14 @@ class StudentVerificationController extends ResourceController
         }
 
         if ($student['enrollment_status'] !== 'enrolled') {
+            $this->log('not_enrolled', $studentId);
             return $this->respond([
                 'verified' => false,
                 'message' => 'Student is not currently enrolled.',
             ]);
         }
 
+        $this->log('verified', $studentId);
         return $this->respond([
             'verified' => true,
             'message' => 'Student is currently enrolled.',
@@ -86,5 +95,10 @@ class StudentVerificationController extends ResourceController
                 'department' => $student['department'],
             ],
         ]);
+    }
+
+    private function log(string $result, mixed $studentIdentifier): void
+    {
+        (new VerificationLogger())->record($result, $studentIdentifier);
     }
 }

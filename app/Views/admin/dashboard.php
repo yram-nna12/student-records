@@ -1,0 +1,1 @@
+<?= $this->extend('admin/layout') ?><?= $this->section('content') ?><dl><dt>Total students</dt><dd><?= (int)$total ?></dd><dt>Enrolled</dt><dd><?= (int)$enrolled ?></dd><dt>Not enrolled</dt><dd><?= (int)$notEnrolled ?></dd></dl><?= $this->endSection() ?>

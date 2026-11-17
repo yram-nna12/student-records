@@ -1,0 +1,4 @@
+<?php
+namespace App\Filters;
+use CodeIgniter\Filters\FilterInterface; use CodeIgniter\HTTP\RequestInterface; use CodeIgniter\HTTP\ResponseInterface;
+class AdminLoginAttempts implements FilterInterface { public function before(RequestInterface $request,$arguments=null){$t=service('throttler');$ip='student_records_admin_ip_'.hash('sha256',$request->getIPAddress());$email=$request->getPost('email');$account='student_records_admin_account_'.hash('sha256',strtolower(trim(is_string($email)?$email:'')));if(!$t->check($ip,30,300)||!$t->check($account,5,300))return service('response')->setStatusCode(429)->setHeader('Retry-After',(string)$t->getTokenTime())->setBody('Too many login attempts. Please wait before trying again.');} public function after(RequestInterface $request,ResponseInterface $response,$arguments=null){} }
