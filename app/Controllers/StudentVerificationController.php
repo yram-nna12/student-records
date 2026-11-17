@@ -11,26 +11,44 @@ class StudentVerificationController extends ResourceController
 
     public function verify()
     {
-        $studentId = trim(
-            (string) $this->request->getGet('student_id')
-        );
+        $expectedApiKey = (string) env('studentRecords.apiKey', '');
+        $providedApiKey = $this->request->getHeaderLine('X-API-Key');
 
-$expectedApiKey = (string) env('studentRecords.apiKey', '');
-$providedApiKey = $this->request->getHeaderLine('X-API-Key');
+        if (
+            $expectedApiKey === '' ||
+            !hash_equals($expectedApiKey, $providedApiKey)
+        ) {
+            return $this->failUnauthorized(
+                'Invalid or missing API key.'
+            );
+        }
 
-if (
-    $expectedApiKey === '' ||
-    !hash_equals($expectedApiKey, $providedApiKey)
-) {
-    return $this->failUnauthorized(
-        'Invalid or missing API key.'
-    );
-}
+        $rawStudentId = $this->request->getGet('student_id');
+        if ($rawStudentId === null || $rawStudentId === '') {
+            return $this->failValidationErrors(
+                'Student ID is required.'
+            );
+        }
 
+        if (! is_string($rawStudentId)) {
+            return $this->failValidationErrors(
+                'Student ID is invalid.'
+            );
+        }
 
+        $studentId = trim($rawStudentId);
         if ($studentId === '') {
             return $this->failValidationErrors(
                 'Student ID is required.'
+            );
+        }
+
+        if (
+            strlen($studentId) > 30 ||
+            preg_match('/\A[A-Za-z0-9-]+\z/', $studentId) !== 1
+        ) {
+            return $this->failValidationErrors(
+                'Student ID is invalid.'
             );
         }
 
