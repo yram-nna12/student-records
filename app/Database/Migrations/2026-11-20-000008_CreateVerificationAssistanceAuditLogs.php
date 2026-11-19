@@ -1,0 +1,4 @@
+<?php
+namespace App\Database\Migrations;
+use CodeIgniter\Database\Migration;
+class CreateVerificationAssistanceAuditLogs extends Migration { public function up(){ $this->forge->addField(['id'=>['type'=>'BIGINT','unsigned'=>true,'auto_increment'=>true],'request_id'=>['type'=>'INT','unsigned'=>true],'admin_id'=>['type'=>'INT','unsigned'=>true,'null'=>true],'action'=>['type'=>'VARCHAR','constraint'=>40],'notes'=>['type'=>'TEXT','null'=>true],'created_at'=>['type'=>'DATETIME']]);$this->forge->addKey('id',true);$this->forge->addKey(['request_id','created_at']);$this->forge->addForeignKey('request_id','verification_assistance_requests','id','CASCADE','CASCADE');$this->forge->addForeignKey('admin_id','admins','id','SET NULL','CASCADE');$this->forge->createTable('verification_assistance_audit_logs');}public function down(){$this->forge->dropTable('verification_assistance_audit_logs');}}
