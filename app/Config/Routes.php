@@ -10,6 +10,7 @@ $routes->post('admin/setup', 'InitialAdminSetupController::create', ['filter'=>'
 $routes->post('admin/login', 'AdminAuthController::login', ['filter'=>['csrf','adminattempts']]);
 $routes->post('admin/logout', 'AdminAuthController::logout', ['filter'=>['csrf','adminauth']]);
 $routes->get('admin/dashboard', 'AdminDashboardController::index', ['filter'=>['csrf','adminauth']]);
+$routes->get('admin/verification-management', 'VerificationManagementController::index', ['filter'=>['csrf','adminauth']]);
 $routes->get('admin/verifications', 'VerificationMonitoringController::index', ['filter'=>['csrf','adminauth']]);
 $routes->group('admin/verification-requests', ['filter'=>['csrf','adminauth']], static function ($routes) { $routes->get('', 'VerificationAssistanceAdminController::index'); $routes->get('(:num)', 'VerificationAssistanceAdminController::show/$1'); $routes->post('(:num)', 'VerificationAssistanceAdminController::update/$1'); $routes->get('(:num)/document', 'VerificationAssistanceAdminController::document/$1'); });
 $routes->post('api/verification-assistance', 'VerificationAssistanceApiController::create');
