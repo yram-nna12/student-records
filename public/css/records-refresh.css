@@ -1,0 +1,105 @@
+.records-portal { --records-green:#164a35; --records-deep:#103b2a; --records-gold:#f2c230; --records-page:#f6f7f4; --records-text:#26332d; --records-border:#e3e9e3; background:var(--records-page); color:var(--records-text); font-size:14px; }
+.records-portal .records-sidebar { background:var(--records-deep); border-radius:0; box-shadow:none; }
+.records-portal .records-brand,.records-portal .records-brand small { color:#fff; }
+.records-portal .records-brand small { color:#c8ded0; }
+.records-portal .records-sidebar nav a,.records-portal .sidebar-logout { color:#e1eee5; font-weight:400; }
+.records-portal .records-sidebar nav a:hover,.records-portal .sidebar-logout:hover { color:#fff; background:#245c43; }
+.records-portal .records-sidebar nav a.active { color:var(--records-deep); background:var(--records-gold); font-weight:600; }
+.records-portal .sidebar-user { border-color:#3c7058; color:#fff; }
+.records-portal .sidebar-user small { color:#c8ded0; }
+.records-portal .records-main { background:var(--records-page); padding:26px clamp(18px,3vw,40px); }
+.records-portal .page-title { font-size:1.45rem; font-weight:600; }
+.records-portal .records-main :is(button,.button) { min-height:36px; padding:7px 14px; background:var(--records-gold); color:var(--records-deep); font-size:.82rem; font-weight:500; text-decoration:none; }
+.records-portal .records-main :is(button,.button).secondary { background:#fff; border:1px solid #aebdb2; }
+.records-portal :is(a,button,input,select,textarea):focus-visible { outline:3px solid #dcad1b; outline-offset:2px; }
+.records-portal .records-main :is(input,select,textarea) { padding:8px 10px; font-size:.86rem; }
+.records-portal .records-main label { font-size:.8rem; font-weight:500; }
+.records-portal .filters { gap:10px; margin:14px 0 18px; padding:14px; border:1px solid var(--records-border); box-shadow:none; }
+.records-portal .filters button { min-height:36px; }
+.records-portal .table-wrap { max-width:100%; overflow-x:auto; border:1px solid var(--records-border); box-shadow:none; }
+.records-portal table { font-size:.8rem; }
+.records-portal th { background:#f4eedb; color:var(--records-deep); font-size:.73rem; letter-spacing:.02em; }
+.records-portal :is(th,td) { padding:10px 12px; overflow-wrap:anywhere; }
+.records-portal td code { overflow-wrap:anywhere; }
+.records-portal .status-badge.not_enrolled { color:#59665e; background:#edf0ed; }
+.records-portal .pagination { gap:5px; align-items:center; }
+.records-portal .pagination a { display:inline-flex; align-items:center; justify-content:center; min-width:32px; min-height:34px; padding:4px 8px; border:0; background:transparent; color:#69776e; text-decoration:none; }
+.records-portal .pagination a:hover { color:var(--records-green); background:transparent; }
+.records-portal .pagination .active a { color:var(--records-green); background:transparent; border-bottom:2px solid var(--records-green); font-weight:600; }
+.records-portal .records-overview { display:grid; gap:18px; max-width:1320px; }
+.records-portal .overview-intro { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:18px 20px; border:1px solid #f2e6bc; border-radius:8px; background:#fff5d6; }
+.records-portal .overview-intro h1 { margin:0; color:var(--records-deep); font-size:1.45rem; }
+.records-portal .overview-intro p { margin:4px 0 0; font-size:.83rem; color:#53655a; }
+.records-portal .overview-intro .overview-eyebrow { color:#856400; font-size:.68rem; font-weight:600; letter-spacing:.08em; }
+.records-portal .overview-metrics { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
+.records-portal .overview-metric,.records-portal .overview-card,.records-portal .record-card,.records-portal .student-profile { min-width:0; padding:18px; border:1px solid var(--records-border); border-radius:8px; background:#fff; box-shadow:0 3px 12px #203c2b0a; }
+.records-portal .overview-metric { display:grid; grid-template-columns:auto 1fr; align-content:start; align-items:center; gap:6px 8px; }
+.records-portal .overview-metric>.material-symbols-outlined { color:var(--records-green); background:#eef5ef; border-radius:6px; padding:6px; }
+.records-portal .overview-metric small { color:#647469; font-size:.73rem; }
+.records-portal .overview-metric strong { grid-column:1/-1; font-size:1.45rem; font-weight:600; }
+.records-portal .overview-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:stretch; }
+.records-portal .overview-card h2,.records-portal .record-card h2 { margin:0 0 12px; font-size:1rem; font-weight:600; }
+.records-portal .overview-card header { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; }
+.records-portal .overview-card header h2 { margin:0; }
+.records-portal .overview-card header a { font-size:.75rem; }
+.records-portal .overview-caption { margin:-6px 0 12px; color:#6c7b70; font-size:.75rem; }
+.records-portal .overview-actions { display:flex; flex-wrap:wrap; gap:10px; }
+.records-portal .overview-actions a { display:inline-flex; align-items:center; gap:8px; padding:9px 12px; border:1px solid var(--records-border); border-radius:6px; color:var(--records-green); text-decoration:none; font-size:.8rem; }
+.records-portal .overview-actions a:hover { background:#f1f7f2; }
+.records-portal .program-bars { display:grid; gap:10px; padding:0; margin:0; list-style:none; }
+.records-portal .program-bars li>div,.records-portal .overview-outcomes>div { display:flex; align-items:center; gap:8px; justify-content:space-between; font-size:.8rem; }
+.records-portal .program-bars span:first-child { overflow-wrap:anywhere; }
+.records-portal .program-track { display:block; height:7px; margin-top:5px; border-radius:8px; background:#e9efea; overflow:hidden; }
+.records-portal .program-track span { display:block; height:100%; border-radius:8px; background:#2d8157; }
+.records-portal .overview-outcomes { display:grid; gap:8px; margin:0 0 16px; }
+.records-portal .overview-outcomes>div { justify-content:start; }
+.records-portal .overview-outcomes strong { margin-left:auto; }
+.records-portal .overview-card .table-wrap { border:0; }
+.records-portal .student-page { display:grid; gap:16px; max-width:1000px; }
+.records-portal .records-back { display:inline-flex; align-items:center; gap:6px; width:fit-content; text-decoration:none; }
+.records-portal .student-profile { display:flex; flex-wrap:wrap; gap:14px; align-items:center; }
+.records-portal .student-profile>div { flex:1; min-width:200px; }
+.records-portal .student-profile h2 { margin:0; font-size:1.2rem; }
+.records-portal .student-profile p { margin:3px 0 8px; color:#68766d; }
+.records-portal .profile-icon { padding:12px; border-radius:8px; background:#fff5d6; color:var(--records-green); font-size:26px; }
+.records-portal .record-fields,.records-portal .student-form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px 20px; margin:0; }
+.records-portal .record-fields dt { margin:0 0 4px; font-size:.76rem; color:#6a786e; }
+.records-portal .record-fields dd { margin:0; overflow-wrap:anywhere; }
+.records-portal .student-edit-form { display:grid; gap:16px; }
+.records-portal .student-form-actions { display:flex; flex-wrap:wrap; gap:8px; }
+@media(max-width:1100px){.records-portal .overview-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.records-portal .records-sidebar{border-radius:0}.records-portal .records-sidebar nav{grid-template-columns:1fr}.records-portal .overview-grid{grid-template-columns:1fr}.records-portal .overview-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.records-portal .records-main{padding:18px 14px}}
+@media(max-width:480px){.records-portal .overview-metrics,.records-portal .record-fields,.records-portal .student-form-grid{grid-template-columns:1fr}.records-portal .student-profile>div{min-width:0}}
+.records-portal .records-analytics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:18px;min-width:0}
+.records-portal .records-donut-layout{display:flex;align-items:center;align-content:center;gap:14px;flex-wrap:wrap;min-width:0;flex:1}
+.records-portal .records-donut{width:112px;height:112px;flex:0 0 112px;border-radius:50%;display:grid;place-items:center}
+.records-portal .records-donut>div{display:grid;place-content:center;text-align:center;width:76px;height:76px;border-radius:50%;background:#fff}
+.records-portal .records-donut strong{font-size:1.2rem}.records-portal .records-donut span{font-size:.68rem;color:#69776e}
+.records-portal .records-legend{flex:1;min-width:145px;display:grid;gap:7px;list-style:none;padding:0;margin:0}
+.records-portal .records-legend li{display:grid;grid-template-columns:9px minmax(0,1fr) auto auto;align-items:center;gap:6px;font-size:.71rem}
+.records-portal .records-legend small{color:#69776e}.records-portal .legend-dot,.records-portal .trend-legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.records-portal .program-chart ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.records-portal .program-chart li{display:grid;grid-template-columns:minmax(80px,1fr) minmax(50px,1fr) auto;align-items:center;gap:8px;font-size:.74rem;min-width:0}
+.records-portal .program-chart li>span{overflow-wrap:anywhere}.records-portal .program-chart-bar{height:12px;min-width:0;background:#edf1ed;border-radius:3px;overflow:hidden}
+.records-portal .program-chart-bar span{display:block;height:100%;border-radius:3px}.records-portal .program-axis{display:flex;justify-content:space-between;margin:5px 18px 0 50%;font-size:.66rem;color:#66756b}
+.records-portal .trend-card{min-width:0}.records-portal .trend-card header{align-items:center;flex-wrap:wrap}.records-portal .trend-card .overview-caption{margin:4px 0 0}
+.records-portal .trend-filter{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0}.records-portal .trend-filter label{font-size:.75rem}.records-portal .trend-filter select{width:auto;min-height:36px}
+.records-portal .trend-legend{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0;font-size:.74rem;color:#59695f}.records-portal .trend-legend span{display:inline-flex;align-items:center;gap:6px}
+.records-portal .trend-chart{min-width:0;width:100%;overflow:hidden}.records-portal .trend-chart svg{display:block;width:100%;height:auto;min-height:100px}.records-portal .trend-chart svg text{font-family:Poppins,sans-serif;font-size:12px;fill:#617168}
+.records-portal .overview-view-all{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;text-decoration:none}.records-portal .overview-view-all:hover{color:#ac7d00}.records-portal .overview-view-all .material-symbols-outlined{font-size:16px}
+.records-portal .records-request-notice{padding:8px 10px;border-radius:6px;background:#fff5d6;color:#745500;font-size:.76rem}
+.records-portal .status-badge.student_not_found{color:#9d2f2f;background:#fde3e3}.records-portal .status-badge.invalid_request{color:#535978;background:#eeeff7}.records-portal .status-badge.unauthorized{color:#704893;background:#f1eaf8}
+.records-portal .records-overview .status-badge.not_enrolled{color:#875710;background:#fff3d8}
+@media(max-width:1200px){.records-portal .records-analytics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.records-portal .records-analytics-grid{grid-template-columns:1fr}.records-portal .overview-card header{align-items:flex-start}.records-portal .trend-filter{width:100%}}
+.records-portal .records-trend-program-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:18px;align-items:stretch;min-width:0}
+.records-portal .records-trend-program-grid>*{min-width:0}
+.records-portal .records-analytics-grid>.overview-card,.records-portal .records-trend-program-grid>.overview-card,.records-portal .records-overview>.overview-grid>.overview-card{display:flex;flex-direction:column;min-width:0;box-sizing:border-box}
+.records-portal .records-trend-program-grid .trend-chart{display:flex;flex:1;align-items:center}
+.records-portal .quick-actions-card .overview-actions{display:grid;gap:8px}
+.records-portal .quick-actions-card .overview-actions a{display:flex;align-items:center;justify-content:flex-start;min-height:38px;padding:7px 11px;transition:background-color .16s,color .16s,border-color .16s}
+.records-portal .quick-actions-card .overview-actions a.primary-action{background:#f2c230;border-color:#f2c230;color:#103b2a;font-weight:600}
+.records-portal .quick-actions-card .overview-actions a.primary-action:hover{background:#dfae1b;border-color:#dfae1b}
+.records-portal .quick-actions-card .overview-actions a:active{filter:brightness(.94)}
+.records-portal .records-trend-program-grid .trend-chart svg{min-height:0}
+@media(max-width:1050px){.records-portal .records-trend-program-grid{grid-template-columns:1fr}}
